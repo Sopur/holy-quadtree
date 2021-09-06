@@ -1,0 +1,27 @@
+{
+  "name": "holy-quad-tree",
+  "version": "1.0.0",
+  "description": "Optimized QuadTree made by Sopur",
+  "main": "src/node-js.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Someguy1834/holy-quadtree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Someguy1834/holy-quadtree/issues"
+  },
+  "homepage": "https://github.com/Someguy1834/holy-quadtree",
+  "keywords": [
+    "quad",
+    "tree",
+    "trees",
+    "quadtree",
+    "optimized",
+    "fast",
+    "collision",
+    "collisions"
+  ],
+  "author": "Sopur (Someguy1834)",
+  "license": "GPL"
+}
