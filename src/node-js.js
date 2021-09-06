@@ -141,7 +141,7 @@ class QuadTree {
                 index = 2;
             }
 
-            // Check if the object can completely fit within the right quadrants
+        // Check if the object can completely fit within the right quadrants
         } else if (object.x > verticalMidpoint) {
             if (object.y < horizontalMidpoint && object.y + object.height < horizontalMidpoint) {
                 index = 0;
