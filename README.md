@@ -17,7 +17,7 @@
 # Basic example
 
 ```js
-const QuadTree = require("holy-quadtree");
+const QuadTree = require("holy-quad-tree");
 const qt = new QuadTree.QuadTree(
     new QuadTree.Bound(100, 100), // Width, height
     10, // Max objects before splitting
