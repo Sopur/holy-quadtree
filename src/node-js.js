@@ -141,7 +141,7 @@ class QuadTree {
                 index = 2;
             }
 
-        // Check if the object can completely fit within the right quadrants
+            // Check if the object can completely fit within the right quadrants
         } else if (object.x > verticalMidpoint) {
             if (object.y < horizontalMidpoint && object.y + object.height < horizontalMidpoint) {
                 index = 0;
@@ -204,10 +204,10 @@ class QuadTree {
             // Check if the object fits into a subnode
             if (index !== -1) {
                 if (
-                    this.nodes[index].x > object.x + object.width ||
-                    this.nodes[index].x < object.x - object.width ||
-                    this.nodes[index].y > object.y + object.height ||
-                    this.nodes[index].y < object.y - object.height
+                    this.nodes[index].bounds.x > object.x + object.width ||
+                    this.nodes[index].bounds.x < object.x - object.width ||
+                    this.nodes[index].bounds.y > object.y + object.height ||
+                    this.nodes[index].bounds.y < object.y - object.height
                 )
                     return [];
                 returnObjects = returnObjects.concat(this.nodes[index].retrieve(object));
@@ -216,10 +216,10 @@ class QuadTree {
             } else {
                 for (let i = 0; i < this.nodes.length; i++) {
                     if (
-                        this.nodes[i].x > object.x + object.width ||
-                        this.nodes[i].x < object.x - object.width ||
-                        this.nodes[i].y > object.y + object.height ||
-                        this.nodes[i].y < object.y - object.height
+                        this.nodes[i].bounds.x > object.x + object.width ||
+                        this.nodes[i].bounds.x < object.x - object.width ||
+                        this.nodes[i].bounds.y > object.y + object.height ||
+                        this.nodes[i].bounds.y < object.y - object.height
                     )
                         return [];
                     returnObjects = returnObjects.concat(this.nodes[i].retrieve(object));
