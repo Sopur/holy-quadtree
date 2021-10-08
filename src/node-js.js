@@ -53,7 +53,6 @@ class QuadTree {
         this.level = level;
         this.bounds = bounds;
         this.objects = [];
-        this.objectReferences = [];
         this.nodes = [];
     }
 
@@ -203,25 +202,11 @@ class QuadTree {
             const index = this.getIndex(object);
             // Check if the object fits into a subnode
             if (index !== -1) {
-                if (
-                    this.nodes[index].bounds.x > object.x + object.width ||
-                    this.nodes[index].bounds.x < object.x - object.width ||
-                    this.nodes[index].bounds.y > object.y + object.height ||
-                    this.nodes[index].bounds.y < object.y - object.height
-                )
-                    return [];
                 returnObjects = returnObjects.concat(this.nodes[index].retrieve(object));
 
                 // If it does not fit into a subnode, check it against all subnodes
             } else {
                 for (let i = 0; i < this.nodes.length; i++) {
-                    if (
-                        this.nodes[i].bounds.x > object.x + object.width ||
-                        this.nodes[i].bounds.x < object.x - object.width ||
-                        this.nodes[i].bounds.y > object.y + object.height ||
-                        this.nodes[i].bounds.y < object.y - object.height
-                    )
-                        return [];
                     returnObjects = returnObjects.concat(this.nodes[i].retrieve(object));
                 }
             }
@@ -233,7 +218,7 @@ class QuadTree {
     /**
      * Get the node in which a certain object is stored
      * @param {Node} object The object that was inserted
-     * @return {Node} The subnode, or false if it wasn't found
+     * @return {QuadTree} The subnode, or false if it wasn't found
      * @private
      */
     getObjectNode(object) {
